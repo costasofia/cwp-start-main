@@ -1,0 +1,185 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.content {
+  justify-content: space-between;
+  padding: 24px;
+  gap: 16px;
+  width: Fill (375px);
+  height: Hug (528px);
+
+}
+
+app-navigation-buttons {
+  padding: 24px;
+}
+
+.introduction {
+  width: 337px;
+  height: 62px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 31.2px;
+
+}
+
+.introduction2 {
+  width: 327px;
+  height: 62px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 31.2px;
+}
+
+
+.introText {
+  width: Fill (327px);
+  height: Hug (32px);
+  padding: 0px, 0px, 8px, 0px;
+  gap: 10px;
+
+}
+
+.message {
+  width: 327px;
+  height: 24px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+  letter-spacing: -0.15000000596046448px;
+  text-align: left;
+  color: #000000;
+
+}
+
+.salutation {
+  width: 200px;
+  height: 11px;
+  color: #212529;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.green {
+  width: 8px;
+  height: 11px;
+  color: #00965E;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+
+}
+
+#radio-group {
+
+  width: Hug (316px);
+  height: Hug (25px);
+  gap: 24px;
+  display: flex;
+
+  height: 100%;
+  display: inline-block;
+
+  padding-top: 10px;
+
+}
+
+.inputField {
+  width: (327px);
+  height: (52px);
+  padding: 16px;
+  border-radius: 5px;
+  border: 1px;
+  gap: 8px;
+  border: 1px solid #8295A5;
+}
+
+
+
+.success {
+  color: #00915A;
+  border-color: #00915A !important;
+}
+
+.error {
+  color: red !important;
+  border-color: red;
+}
+
+
+
+.wrapper {
+
+  display: inline-block;
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+.label {
+  color: var(--neutrals-shades-black, #212529);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: 0.1px;
+  padding: 0px 19.82px 0px 0px;
+}
+
+input[type="radio"] {
+  float: left;
+  width: 24px;
+  height: 24px;
+  color: #8295A5;
+  margin: 0px 8px 0 0px;
+  clear: none;
+
+
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: 0.10000000149011612px;
+  text-align: left;
+
+}
+
+input[type="radio"]:checked {
+  accent-color: #00915A;
+}
+
+.weiter {
+  margin-left: 28px;
+  margin-right: 28px;
+  display: flex;
+  justify-content: center;
+  background-color: #00965e;
+  padding: 12px 20px;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.validation {
+  width: 327px;
+  height: 48px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+  letter-spacing: -0.15000000596046448px;
+  text-align: left;
+  color: #000000;
+}

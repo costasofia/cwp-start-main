@@ -1,0 +1,17 @@
+.progress-bar {
+  display: flex;
+  border: 1px solid #ccc;
+  overflow: hidden;
+}
+
+.progress-step {
+  background-color: #4caf50;
+  color: white;
+  text-align: center;
+  line-height: 2em;
+  flex-grow: 1;
+}
+
+.completed {
+  background-color: #2196f3;
+}

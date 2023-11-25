@@ -1,0 +1,11 @@
+<cwp-header
+  *ngIf="
+    CwpFlowService.CWPFlowStepActive.value === CWPFlowStepsSequence.personalData_salutationAndNamePage
+  "
+></cwp-header>
+
+<body>
+  <router-outlet></router-outlet>
+</body>
+
+<cwp-footer></cwp-footer>

@@ -1,0 +1,25 @@
+.wrapper {
+ 
+    display: inline-block;
+     margin-top: 16px;
+     margin-bottom: 24px;
+}
+
+.label {
+    color: var(--neutrals-shades-black, #212529);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0.1px;
+    padding: 0px 19.82px 0px 0px;
+}
+
+.radio {
+    float: left;
+    width: 24px;
+    height: 24px;
+    color: #8295A5;
+    margin: 0px 8px 0 0px;
+    clear: none;
+}

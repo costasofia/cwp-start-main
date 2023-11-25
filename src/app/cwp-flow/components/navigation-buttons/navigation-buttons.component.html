@@ -1,0 +1,11 @@
+<ng-container *ngIf="buttonType === navigationButtons.next">
+  <div class="weiter" (click)="onNext()">
+    <span>Weiter</span>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="buttonType === navigationButtons.back">
+  <div class="back" (click)="onBack()">
+    <app-arrow></app-arrow>
+  </div>
+</ng-container>

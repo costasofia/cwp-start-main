@@ -1,0 +1,217 @@
+<ng-container *ngIf="CwpFlowService.CWPFlowStepActive | async as active">
+
+  <app-progress-bar *ngIf="
+      active !==
+      CwpFlowService.CWPFlowStepsSequence.personalData_salutationAndNamePage
+    "></app-progress-bar>
+
+
+
+  <ng-container [ngSwitch]="active">
+    <form [formGroup]="CWPForm" (ngSubmit)="submitForm()">
+      <ng-container *ngSwitchCase="
+        CwpFlowService.CWPFlowStepsSequence.personalData_salutationAndNamePage
+      ">
+        <div class="step">
+
+          <app-intro-image></app-intro-image>
+          <div class="content">
+            <h1 class="introduction">In wenigen Schritten zu Ihrer Consors Finanz Mastercard®.</h1>
+            <div class="introText">
+              <h2 class="message">Pflichtfelder sind mit <span class="green">*</span> markiert</h2>
+            </div>
+            <div style="width: 327px;  gap:16px" formGroupName="personalData">
+              <div>
+                <h1 class="salutation"><span class="green"
+                    [ngClass]="{error:CWPForm.get('personalData.salutation')?.errors?.['required'] && isSubmited}">*</span>Anrede
+                </h1>
+                <div class='wrapper' *ngFor="let value of salutation">
+                  <label class='label'>{{value}}</label>
+                  <input  class="radio" type='radio' value="{{value}}" #salutation
+                    formControlName="salutation"
+                    [ngClass]="{error:CWPForm.get('personalData.salutation')?.errors?.['required'] && isSubmited}">
+                </div>
+                <div *ngIf="isSubmited && CWPForm.get('personalData.salutation')?.errors?.['required']">
+                  <p class="validation" style="color:red">Wählen Sie die zutreffende Option.</p>
+                </div>
+              </div>
+              <div>
+                <h1 #first class="salutation"><span class="green"
+                    [ngClass]="{error:CWPForm.get('personalData.firstName')?.errors?.['required'] && isSubmited}">*</span>Vorname
+                </h1>
+                <input id="firstName" class="inputField" type="text" name="firstName" formControlName="firstName"
+                  value="firstName" [ngClass]="{success:CWPForm.get('personalData.firstName')?.valid , 
+                error:CWPForm.get('personalData.firstName')?.errors?.['required']&& isSubmited}">
+
+                <div *ngIf="!isSubmited || CWPForm.get('personalData.firstName')?.valid && isSubmited">
+                  <p class="validation">Geben Sie alle Vornamen so an, wie sie in Ihrem Personalausweis stehen.</p>
+                </div>
+                <div *ngIf="CWPForm.get('personalData.firstName')?.errors?.['required'] && isSubmited">
+                  <p style="color:red">Bitte geben Sie Ihren Vorname an.</p>
+                </div>
+              </div>
+
+              <div>
+                <h1 class="salutation"><span class="green"
+                    [ngClass]="{error:CWPForm.get('personalData.lastName')?.errors?.['required'] && isSubmited}">*</span>Nachname
+                </h1>
+                <input id="lastName" class="inputField" type="text" name="lastName" formControlName="lastName"
+                  value="lastName" [ngClass]="{success:CWPForm.get('personalData.lastName')?.valid , 
+                error:CWPForm.get('personalData.lastName')?.errors?.['required']&& isSubmited}">
+                <div *ngIf="!isSubmited || CWPForm.get('personalData.lastName')?.valid && isSubmited">
+                  <p class="validation">Geben Sie alle Nachnamen so an, wie er in Ihrem Personalausweis steht.</p>
+                </div>
+                <div *ngIf="CWPForm.get('personalData.lastName')?.errors?.['required'] && isSubmited">
+                  <p class="validation" style="color:red">Bitte geben Sie Ihren Nachname an.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <button class="weiter" (click)="onNext()">Weiter</button>
+        </div>
+
+      </ng-container>
+
+      <ng-container *ngSwitchCase="CwpFlowService.CWPFlowStepsSequence.personalData_emailPage">
+        <app-navigation-buttons [buttonType]="CwpFlowService.CWPFlowNavigationButtons.back"></app-navigation-buttons>
+        <div class="step">
+          <div class="content">
+            <h1 class="introduction2">Wie lautet Ihre E-Mail-Adresse?</h1>
+            <div class="introText" formGroupName="personalData">
+              <h1 class="salutation"><span class="green">*</span>E-Mail-Adresse</h1>
+              <input id="email" class="inputField" type="text" name="email" formControlName="email" value="email"
+                [ngClass]="{success:CWPForm.get('personalData.email')?.valid , 
+                error:CWPForm.get('personalData.email')?.errors?.['required'] && isSubmited}">
+              <div *ngIf="!isSubmited || CWPForm.get('personalData.email')?.valid && isSubmited">
+                <p class="validation">Nennen Sie uns die E-Mail-Adresse (z. B. beispiel&#64;beispiel.com), an die wir Ihren Vertrag senden werden.</p>
+              </div>
+              <div *ngIf="CWPForm.get('personalData.email')?.errors?.['required'] && isSubmited">
+                <p class="validation" style="color:red">Bitte überprüfen Sie Ihre E-Mail-Adresse(zB. beispiel&#64;beispiel.com).</p>
+              </div>
+            </div>
+          </div>
+          <button class="weiter" (click)="onNext()">Weiter</button>
+        </div>
+
+      </ng-container>
+
+      <ng-container *ngSwitchCase="
+        CwpFlowService.CWPFlowStepsSequence.personalData_birthDatePage
+      ">
+        <app-navigation-buttons [buttonType]="CwpFlowService.CWPFlowNavigationButtons.back"></app-navigation-buttons>
+        <div class="step">
+          <div class="content">
+            <h1>Birthday page.</h1>
+          </div>
+        </div>
+        <app-navigation-buttons [buttonType]="CwpFlowService.CWPFlowNavigationButtons.next"></app-navigation-buttons>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="
+        CwpFlowService.CWPFlowStepsSequence.personalData_maritalStatusPage
+      ">
+        <app-navigation-buttons [buttonType]="CwpFlowService.CWPFlowNavigationButtons.back"></app-navigation-buttons>
+        <div class="step">
+          <div class="content">
+            <h1>Marital status page.</h1>
+          </div>
+        </div>
+        <app-navigation-buttons [buttonType]="CwpFlowService.CWPFlowNavigationButtons.next"></app-navigation-buttons>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="
+        CwpFlowService.CWPFlowStepsSequence.contactDetails_addressCurrentPage
+      ">
+        <app-navigation-buttons [buttonType]="CwpFlowService.CWPFlowNavigationButtons.back"></app-navigation-buttons>
+        <div class="step">
+          <div class="content">
+            <h1>Contact Details.</h1>
+            <h2>Current address.</h2>
+          </div>
+        </div>
+        <app-navigation-buttons [buttonType]="CwpFlowService.CWPFlowNavigationButtons.next"></app-navigation-buttons>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="
+        CwpFlowService.CWPFlowStepsSequence.contactDetails_addressPreviousPage
+      ">
+        <app-navigation-buttons [buttonType]="CwpFlowService.CWPFlowNavigationButtons.back"></app-navigation-buttons>
+        <div class="step">
+          <div class="content">
+            <h1>Contact Details.</h1>
+            <h2>Previous address.</h2>
+          </div>
+        </div>
+        <app-navigation-buttons [buttonType]="CwpFlowService.CWPFlowNavigationButtons.next"></app-navigation-buttons>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="
+        CwpFlowService.CWPFlowStepsSequence.contactDetails_phoneNumberPage
+      ">
+        <app-navigation-buttons [buttonType]="CwpFlowService.CWPFlowNavigationButtons.back"></app-navigation-buttons>
+        <div class="step">
+          <div class="content">
+            <h1>Phone Number.</h1>
+          </div>
+        </div>
+        <app-navigation-buttons [buttonType]="CwpFlowService.CWPFlowNavigationButtons.next"></app-navigation-buttons>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="
+        CwpFlowService.CWPFlowStepsSequence.nationality_nationalityPage
+      ">
+        <app-navigation-buttons [buttonType]="CwpFlowService.CWPFlowNavigationButtons.back"></app-navigation-buttons>
+        <div class="step">
+          <div class="content">
+            <h1>Nationality.</h1>
+          </div>
+        </div>
+        <app-navigation-buttons [buttonType]="CwpFlowService.CWPFlowNavigationButtons.next"></app-navigation-buttons>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="
+        CwpFlowService.CWPFlowStepsSequence.bankDetails_bankDetailsPage
+      ">
+        <app-navigation-buttons [buttonType]="CwpFlowService.CWPFlowNavigationButtons.back"></app-navigation-buttons>
+        <div class="step">
+          <div class="content">
+            <h1>Bank Details.</h1>
+          </div>
+        </div>
+        <app-navigation-buttons [buttonType]="CwpFlowService.CWPFlowNavigationButtons.next"></app-navigation-buttons>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="CwpFlowService.CWPFlowStepsSequence.employmentDetails">
+        <app-navigation-buttons [buttonType]="CwpFlowService.CWPFlowNavigationButtons.back"></app-navigation-buttons>
+        <div class="step">
+          <div class="content">
+            <h1>Employment Details.</h1>
+          </div>
+        </div>
+        <app-navigation-buttons [buttonType]="CwpFlowService.CWPFlowNavigationButtons.next"></app-navigation-buttons>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="CwpFlowService.CWPFlowStepsSequence.regularExpenses">
+        <app-navigation-buttons [buttonType]="CwpFlowService.CWPFlowNavigationButtons.back"></app-navigation-buttons>
+        <div class="step">
+          <div class="content">
+            <h1>Regular Expenses.</h1>
+          </div>
+        </div>
+        <app-navigation-buttons [buttonType]="CwpFlowService.CWPFlowNavigationButtons.next"></app-navigation-buttons>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="CwpFlowService.CWPFlowStepsSequence.overallOverview">
+        <app-navigation-buttons [buttonType]="CwpFlowService.CWPFlowNavigationButtons.back"></app-navigation-buttons>
+        <div class="step">
+          <div class="content">
+            <h1>Overall Overview.</h1>
+          </div>
+        </div>
+        <app-navigation-buttons [buttonType]="CwpFlowService.CWPFlowNavigationButtons.next"></app-navigation-buttons>
+      </ng-container>
+    </form>
+  </ng-container>
+</ng-container>

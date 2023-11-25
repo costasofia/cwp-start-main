@@ -1,0 +1,23 @@
+<div class="progress-bar">
+  {{ CwpFlowService.CWPFlowStepActiveName }}
+  <div class="progress-bar">
+    <div
+      *ngFor="
+        let step of CwpFlowService.CWPBlockNames;
+        let i = index
+      "
+      class="progress-step"
+      [style.width.%]="
+        ((i + 1) / CwpFlowService.CWPFlowStepsSequenceKeysToArray.length) * 100
+      "
+    >
+      <div
+        class="current"
+        *ngIf="step === CwpFlowService.CWPFlowStepActiveName"
+        [style.width.%]=""
+      >
+        {{ i + 1 }}
+      </div>
+    </div>
+  </div>
+</div>
