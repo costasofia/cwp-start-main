@@ -1,0 +1,213 @@
+@import "./app/styles/variables";
+@import "./app/styles/palette";
+@import "./app/styles/fonts";
+
+html {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin: 0;
+  height: 100%;
+}
+
+.title {
+  font-family: $font-family-base;
+  color: $--color-default-black;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%;
+
+  margin-bottom: 16px;
+
+  @media (min-width: $breakpoint-sm) {
+    font-size: 30px;
+    font-weight: 700;
+
+    margin-bottom: 24px;
+  }
+
+  // Media query for desktops
+  @media (min-width: $breakpoint-md) {}
+
+  // Media query for large screens
+  @media (min-width: $breakpoint-lg) {}
+}
+
+.label {
+  font-family: $font-family-base;
+  color: $--color-default-black;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+
+  margin-bottom: 8px;
+}
+
+.description {
+  font-family: $font-family-base;
+  color: $--color-default-black;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 150%;
+  /* 24px */
+  letter-spacing: -0.15px;
+
+  margin-bottom: 24px;
+
+  @media (min-width: $breakpoint-sm) {}
+
+  // Media query for desktops
+  @media (min-width: $breakpoint-md) {}
+
+  // Media query for large screens
+  @media (min-width: $breakpoint-lg) {}
+}
+
+.loading-message {
+  text-align: center;
+  font-family: $font-family-base;
+  color: $--color-default-black;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 140%;
+  /* 25.2px */
+  letter-spacing: -0.18px;
+}
+
+.flag {
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+.radio-buttons {
+  display: flex;
+  padding-top: 8px;
+  margin-bottom: 24px;
+
+  .button {
+    input[type="radio"] {
+      float: left;
+      width: 24px;
+      height: 24px;
+      margin: 0px 8px 0 0px;
+      clear: none;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 25px;
+      letter-spacing: 0.10000000149011612px;
+      text-align: left;
+      appearance: none;
+      border: 2px solid #8295a5;
+      border-radius: 12px;
+
+      &.error {
+        accent-color: $--color-error-default ;
+        line-height: 25px;
+      }
+
+      &:checked:before {
+        display: block;
+        width: 12px;
+        height: 12px;
+        content: '';
+        position: relative;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        background-color: $--color-success-default;
+        border-radius: 12px;
+        border-color: $--color-success-default ;
+      }
+
+      &:checked {
+        border-color: $--color-success-default ;
+      }
+    }
+  }
+}
+
+
+.success {
+  border-color: $--color-success-default !important;
+  color: $--color-default-black !important;
+}
+
+.asterisk {
+  width: 8px;
+  height: 11px;
+  color: $--color-primary-default;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.input-field {
+  position: relative;
+  width: -webkit-fill-available;
+  height: 20px;
+  padding: 16px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+  border: 1px;
+  gap: 8px;
+  border: 1px solid #8295a5;
+}
+
+.error {
+  color: $--color-error-default !important;
+  border-color: $--color-error-default !important;
+}
+
+.label {
+  color: var(--neutrals-shades-black, #212529);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: 0.1px;
+  padding: 0px 19.82px 0px 0px;
+}
+
+.validation {
+  // width: 327px;
+  height: 48px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+  letter-spacing: -0.15000000596046448px;
+  text-align: left;
+  color: $--color-error-default;
+  font-family: $font-family-base;
+}
+
+.icon-check {
+  color: $--color-success-default !important;
+  position: absolute;
+  right: 18px;
+  margin-top: 17px;
+}
+
+.icon-exclamation {
+  color: $--color-error-default !important;
+  position: absolute;
+  right: 18px;
+  margin-top: 17px;
+}
+
+.input {
+  width: -webkit-fill-available;
+  position: relative;
+}
